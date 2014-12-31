@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% block nav-oraculolist %}
+    <li class="active">
+      <a class="btn btn-primary" href="{% url 'oraculolist' %}"><span class="glyphicon glyphicon-bullhorn"><h4>Oráculo</h4></a>
+    </li>
+{% endblock %}
+{% block title %} Hacking Code School {% endblock %}
+
+
+{% block profile %}
+
+  {% endblock%}
+
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row col-md-6">
+    <blockquote class="blockquote-reverse">
+        <h1 >Bienvenidos a Oráculo</h1>
+          <p class="text-success">El sistema de discursiones de Hacking Code School</p>
+          <p>Pregunta lo que necesites y la comunidad contestará!</p>
+            <a href="/preguntar/"><button type="button" class="btn btn-default">Haz tu Pregunta!</button>
+            </a>
+     </blockquote>
+  </div>
+
+  <div class="row col-md-6 hidden-xs">
+    <blockquote class="blockquote">
+       <h1 >Bienvenidos a Oráculo</h1>
+         <p class="text-success">Necesitas estar logueado para preguntar en Hacking Code School</p>
+          <p>Para registrarte sólo pedimos nick, mail y pass!.</p>
+            <a href="login"><button type="button" class="btn btn-default">Login o Registro!</button>
+            </a>
+          </p>
+    </blockquote>
+  </div>
+  <h1 class="text-center">Pregunta y la comunidad contestará</h1>
+</div>
+<br>
+
+
+<div class="container-fluid">
+    <div class="row col-md-12">
+            <div class="navbar col-md-8 ">
+              <br>
+                <ul class="nav nav-tabs">
+                    <li class="top active">
+                      <a href="/oraculolist/">5 últimas preguntas</a>
+                    </li>
+                    <li class="top">
+                        <a href="/preguntas/">Ver todas las preguntas</a>
+                    </li>
+                    <li>
+                        <a href="/preguntar/">Hacer tu pregunta</a>
+                    <li>
+        
+                    <form class="navbar-form" role="search">
+                        <div class="form-group ">
+                         
+                          <input type="text" class="form-control" placeholder="Buscador" value="{% for question, tags, etiqueta in object_list %}" "{% endfor %}" >
+                        </input>
+                          <button type="submit" class="btn btn-info">Buscar</button>
+                        </div>
+
+                    </form>
+                 </ul>
+              </div>
+
+          
+              <div class="col-md-4">
+                <h3 class="text-primary text-center ">Busqueda por Categorías:</h3>
+                  <div class="btn col-md-12">
+                  {% for question, tags, etiqueta in object_list %}
+                  {% for tag in tags %}
+                        <button type="button" class="btn btn-default btn-sm" id="{{ tag.id }}">{{ tag.nombre }}</button>
+                      {% endfor %}
+
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+  <div class="container-fluid">
+    <div class="col-md-8">
+        {% for question, tags, etiqueta in object_list %}
+          <div class="col-md-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <div id="datos">
+                  <h3 class="text-center panel-title">
+                      <a href="/pregunta/{{ question.slug }}/">{{ question.title }}
+                        <small>{{ question.user }} </small>
+                        <span><img src="{{ question.user.avatar }}" 
+                          class="foto-perfil" height="60" width="60"></span>
+                       </a> 
+                   </h3>
+                </div>
+              </div>
+            <div class="panel-body">
+              <blockquote>
+                <p>Descripcion:</p> 
+                  <a href="/pregunta/{{ question.slug }}/" >
+                    <span class="list-group-item">{{ question.description}}</span>
+                  </a>
+                    </br>
+                  <span>Etiquetas:</span>
+                    <button type="button" class="btn btn-sm  btn-default">{{ question.etiqueta }}</button>
+                    {% for tag in tags %}
+                    <button type="button" class="btn btn-sm  btn-default">{{ tag.nombre }}</button>
+                    {% endfor %}
+                </blockquote>
+                  <button type="button" class="btn btn-sm btn-primary">
+                    Publicado el:</button> {{ question.modified }}</p>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+    </div>
+         
+        <div class="col-md-4">
+          <div class="list-group">
+            <a href="/preguntas/" class="list-group-item active">Top 10 Preguntas Frecuentes</a>
+            {% for question, title in object_list %}
+              <a href="/pregunta/{{ question.slug }}" class="list-group-item">
+                <span class="glyphicon glyphicon-question-sign"> 
+                  {{ question.title }} 
+                </span>
+              </a>
+             {% endfor %}
+            </div>
+          </div> 
+              <div class="col-md-4">
+                <h4 class="text-primary text-center">Nube de etiquetas:</h4>
+                  <div class="btn col-md-12">
+                    {% for question, tags, etiqueta in object_list %}
+                      <button type="button" class="btn btn-success btn-sm" id="{{ tag.id }}">{{ question.etiqueta }}</button>
+                    {% endfor %}
+                  </div>
+              </div>
+
+</div>
+
+
+ 
+{% endblock %}
+
+{% block scripts %}
+<script>
+  $('.btn-xs').on('click', HiceClick);
+  function HiceClick(){
+    var id = $(this).attr('id');
+    
+    $.ajax({
+      data : {'id' : id},
+      url : '/buscar-ajax/' ,
+      type : 'get',
+      success : function (data){
+        var html
+        for (var i = 0; i < data.length ; i++){
+        html+='<div><hr><h4><a href="/pregunta/'+ data[i].fields.slug + '/">'+ data[i].fields.title + '</a></h4><blockquote class="bloquesito"><p class="bg-info bg-info-customize">Vistos <span>0</span></p><p class="bg-warning bg-info-customize">Respuestas <span>0</span></p><p class="bg-success bg-info-customize">Votos <span>0</span></p><p class="bg-success bg-fecha-customize">Publicado el: <span>' + data[i].fields.modified +'</span></p><p class="tags"><span>Etiquetas:</span></p></blockquote></div>';
+        }
+        $('#datos').html(html);
+      }
+    });
+  
+}
+
+</script>
+
+{% endblock %}

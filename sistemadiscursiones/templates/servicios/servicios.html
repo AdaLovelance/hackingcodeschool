@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block nav-servicios %}
+    <li class="active">
+      <a class="btn btn-primary" href="{% url 'servicios' %}"><span class="glyphicon glyphicon-wrench">
+        <h4>Servicios</h4></a>
+    </li>
+{% endblock %}
+{% block title %} Hacking Code School {% endblock %}
+
+
+{% block profile %}
+
+  {% endblock%}
+
+
+{% block content %}
+
+
+<div class="container-fluid">
+	<ul>
+		<li>
+			<h2 class="button-default">Formación</h2>
+			<h2>Administración de sistemas</h2>
+			<h2>Hosting</h2>
+			<h2>Programación</h2>
+			<h2>Pentesting</h2>
+			<h2>Auditorias</h2>
+		</li>
+	</ul>
+</div>
+
+
+
+ {% endblock%}

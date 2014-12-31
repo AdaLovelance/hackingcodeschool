@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block nav-hacksessions %}
+    <li class="active">
+      <a class="btn btn-primary" href="{% url 'hacksessions' %}"><span class="glyphicon glyphicon-log-in">
+        <h4>Hack Sessions</h4></a>
+    </li>
+{% endblock %}
+{% block title %} Hacking Code School {% endblock %}
+
+
+{% block profile %}
+
+  {% endblock%}
+
+
+{% block content %}
+
+
+
+<ul class="nav nav-tabs">
+  <li ><a href="{% url 'hacksessions' %}">Preguntas</li></a>
+   <li><a href="{% url 'hackpub' %}">Hacksessions públicas</a>
+   <li class="active"><a href="{% url 'hackpriv' %}">Hacksessions privadas</a>
+   <li><a href="{% url 'proxhack' %}">Próximas Hacksessions</a>
+ 
+  </li>
+ 
+</ul>
+
+
+
+
+ {% endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<hr>
+
+      <footer>
+        <p>&copy; Hacking Code School 2014, All code under GPL3 Licence. | ada_lovelance@hackingcodeschool.net</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

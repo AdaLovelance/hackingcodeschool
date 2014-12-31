@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+<div class="panel panel-info">
+  <div class="panel panel-heading panel-info col-md-6">
+
+                    <h2> Regístrate</h2>
+                    <div class="panel panel-body">
+                    <form method="post" action="">
+                          {% csrf_token %}
+                          {{formRegistro.as_p}}
+                      <div class="input-group">
+                      <input type="submit"  class="btn btn-primary navbar-inverse icon glyphicon glyphicon-share" value="Registráte">
+                    </div>
+                     
+                    </form>
+                    </div>
+                    </div>
+
+
+                     <div class="panel panel-heading panel-info col-md-6">
+                       <div class="panel panel-body">
+                    <h2>O Logueate</h2>
+                     <div id="login">
+                      <form class="form-horizontal" name="LoginForm"  method="post">
+                        {% csrf_token %}
+                        {{ formLogin.as_p }}
+           <input type="submit"  class="btn btn-primary navbar-inverse icon glyphicon glyphicon-share" value="Logeate"></i>
+                   
+                     </form>
+</div>
+
+
+{% endblock %}

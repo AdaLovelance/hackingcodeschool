@@ -1,0 +1,266 @@
+{% extends 'base.html' %}
+{% block nav-hacksessions %}
+    <li class="active">
+      <a class="btn btn-primary" href="{% url 'hacksessions' %}"><span class="glyphicon glyphicon-log-in">
+        <h4>Hack Sessions</h4></a>
+    </li>
+{% endblock %}
+{% block title %} Hacking Code School {% endblock %}
+
+
+{% block profile %}
+
+  {% endblock%}
+
+
+{% block content %}
+
+
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="{% url 'hacksessions' %}">Preguntas</li></a>
+   <li><a href="{% url 'hackpub' %}">Hacksessions públicas</a>
+   <li><a href="{% url 'hackpriv' %}">Hacksessions privadas</a>
+   <li><a href="{% url 'proxhack' %}">Próximas Hacksessions</a>
+ 
+  </li>
+ 
+</ul>
+
+
+<div class="page-header">
+<div class="row">
+  <div class="container-fluid ">
+    <h1 class="text-center">Live free or die hacking</h1>
+    <h2 class="text-center">HackSessions</h2>
+
+    <div class="container-fluid col-md-6  pull-left">
+    <div class="list-group">
+      <a class="list-group-item active">
+        <h2 class="list-group-item-heading">Streeming en directo de la hacksession</h2>
+        <p> Si no lees nada, es que no está pasando. Mira la fecha de la próxima hacksession en el calendario o preguntános.</p>
+    </div><!-- division list group -->
+        <h4 class="list-group-item-heading">Nuestra terminal ahora</h4>
+      </a>
+      <object  width="725" height="500" data="http://localhost:13377"></object><br />
+    </div><!-- Fin container fluid -->
+  
+<input type="date" />
+  <div class="panel panel-info col-md-6 pull-right ">
+      <div class="panel-heading">
+        <h2 class="panel-title">Hack Sessions</h2>
+      </div><!-- panel heading -->
+      <div class="panel-body col-md-12">
+            <strong><p>¿Qué es una Hack Sessions?</p>
+            </strong>
+              <p>Las Hack Sessions son una terminal compartida en un servidor donde se realizan pruebas de concepto sobre hacking, seguridad, administración de sistemas...</p>
+
+              <p>Nos conectamos todos por ssh a una máquina y compartimos la sesión para realizar diversos ejercicios. No hay un profesor, todos aportamos lo que sabemos para mejorar nuestros conocimientos, todos podemos escribir en la terminal y leer lo que escriben los demás. Para una mejor comunicación estamos todos en contacto mediante el servidor de Mumble.</p>
+              <p>Puedes ver algunas sessiones ya realizadas en</p><a href="hackpub.html"><button type="button" class="btn btn-info">Hacksessions públicas</button></a>
+
+        </div><!-- panel body -->
+</div><!-- Row-->
+</div>
+
+
+
+
+
+
+
+
+
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">Hack Sessions</h2>
+      </div><!-- panel heading -->
+      <div class="panel-body col-md-4">
+            <strong><p>¿Qué es una Hack Sessions?</p>
+            </strong>
+              <p>Las Hack Sessions son una terminal compartida en un servidor donde se realizan pruebas de concepto sobre hacking, seguridad, administración de sistemas...</p>
+
+              <p>Nos conectamos todos por ssh a una máquina y compartimos la sesión para realizar diversos ejercicios. No hay un profesor, todos aportamos lo que sabemos para mejorar nuestros conocimientos, todos podemos escribir en la terminal y leer lo que escriben los demás. Para una mejor comunicación estamos todos en contacto mediante el servidor de Mumble.</p>
+              <p>Puedes ver algunas sessiones ya realizadas en</p><a href="{% url 'hackpub' %}"><button type="button" class="btn btn-info">Hacksessions públicas</button></a>
+
+        </div><!-- panel body -->
+        <div class="panel-body col-md-4">
+            <strong><p>¿Como puedo conectarme?</p>
+            </strong>
+              <p>El número de personas que pueden acceder a la vez al servidor es limitado, tod@s podéis ver que está pasando en el streeming en directo de la hacksession y conectaros a mumble para participar.</p>
+              <p>Las hacksessions se eligen por los temas de interés propuestos por la comunidad. Los temas se proponen en proximas hacksessions que es donde puedes registrarte par participar en la próxima, el registro no recoje datos personales, puedes poner tu nick o lo que prefieras, se hace por tener un poco de orden.</p>
+
+              <p>Para estar con nosotros dentro del servidor, puedes hacerlo registrándote en </p><a href="{% url 'proxhack' %}"><button type="button" class="btn btn-info">Próximas hacksesions</button></a>
+             
+             
+        </div><!-- panel body -->
+          <div class="panel-body col-md-4">
+            <strong><p>¿HackSessions públicas o privadas?, ¿Diferencia? </p>
+            </strong>
+              <p>Las Hacksessions públicas son las que hacemos con la comunidad, son grabadas y se pueden ver en <a href="{% url 'hackpub' %}">hacksessions publicas</a> son de temas variados, y todos aprendemos y enseñamos a la vez.</p>
+
+              <p>Las Hacksessions privadas son exclusivas, el grupo es heterogeneo en conocimientos y se tratan temas más comprometidos en mayor profundidad.</p>
+
+              <p>Se contratan, ya que en este caso los temas no son a petición de todos, si no que vosotros elegis un concepto que querais aprender o probar y nosotros buscamos quién lo imparta en directo.</p>
+
+              <p>Puedes ver los detalles y su precio en</p><a href="{% url 'hackpriv' %}"><button type="button" class="btn btn-info">Hacksesions privadas</button></a>
+             
+        </div><!-- panel body -->
+        <div class="panel-body col-md-6">
+            <strong><p>¿Precio? </p>
+            </strong>
+              <p>Las Hacksessions públicas son las que hacemos con la comunidad, son grabadas y se pueden ver en <a href="proxhack.html">hacksessions publicas</a> son de temas variados, y todos aprendemos y enseñamos a la vez.</p>
+
+              <p>Las Hacksessions privadas son exclusivas, el grupo es heterogeneo en conocimientos y se tratan temas más comprometidos en mayor profundidad.</p>
+
+              <p>Se contratan, ya que en este caso los temas no son a petición de todos, si no que vosotros elegis un concepto que querais aprender o probar y nosotros buscamos quién lo imparta en directo.</p>
+
+              <p>Puedes ver los detalles y su precio en</p><a href="hackpriv.html"><button type="button" class="btn btn-info">Hacksesions privadas</button></a>
+             
+        </div><!-- panel body -->
+      <div><!-- panel-->
+  </div> <!-- container -->
+</div><!-- row -->
+</div>
+</div>
+</div>
+
+
+<div class="row">
+
+
+
+
+</div>
+
+
+<!-- Pie de página -->
+
+</div>
+<hr>
+
+      <footer>
+        <p>&copy; Hacking Code School 2014, All code under GPL3 Licence. | ada_lovelance@hackingcodeschool.net</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+
+{% endblock %}
+</html>
+
+
+
+
+<!--
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="container">
+          
+            <div class="3u">
+            
+              
+              
+                <section>
+                  <h3>HackSessions Públicas</h3>
+                  <ul class="link-list">
+                    <li><a href="#"></a>Ultimas hacksessions</li>
+                    <li><a href="#">Próximas Hacksessions</a></li>
+                    <li><a href="#">Calendario</a></li>
+                    <li><a href="contacto.html">Apuntarse (Como puedes ver la página está en desarrollo, de momento la forma de apuntarse es enviando un correo)</a></li>
+                  </ul>
+                </section>
+
+                <section class="last">
+                  <h3>Hack Sessions Privadas</h3>
+                  <p>
+                    Aprendizaje real con máquinas reales y gente de verdad.               
+                  </p>
+                  <ul class="link-list">
+                    <li><a href="#">Precios</a></li>
+                    <li><a href="#">Calendario</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Bonos</a></li>
+                  </ul>
+                </section>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+
+ 
+
+      <div id="footer-wrapper">
+        <footer class="container" id="site-footer">
+          <div class="row">
+            <div class="3u">
+              <section class="first">
+                <h2>Nuesto mumble es: </h2>
+                <ul class="link-list">
+                  <li><a href="#">Servidor: hackingcodeschool.net</a>
+                  <li><a href="#">puerto por defecto</a>
+                </ul>
+              </section>
+            </div>
+            <div class="3u">
+              <section>
+                <h2>Create tu canal en nuestra red irc</h2>
+                <ul class="link-list">
+                  <li><a href="#">irc.hackingcodeschool.net</a>
+                </ul>
+              </section>
+            </div>
+            <div class="3u">
+              <section>
+                <h2>Create tu propia cuenta de correo:</h2>
+                <ul class="link-list">
+                  <li><a href="#">Contacta en:</a>
+                  <li><a href="#">ada_lovelance@hackingcodeschool.net</a>
+                </ul>
+              </section>
+            </div>
+            <div class="3u">
+              <section class="last">
+                <h2>Parners y sitios de interés: </h2>
+                <ul class="link-list">
+                  <li><a href="http://informatico-madrid.com">Informático-madrid</a>
+                  <li><a href="http://bugtraq-team.com">Bugtraq Team</a>
+                  <li><a href="http://hackingaround.net">Hacking Around</a>
+                </ul>
+              </section>
+            </div>
+          </div>
+          <div class="row">
+            <div class="12u">
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="12u">
+              <div id="copyright">
+                &copy; HackingCodeSchool. All rights reserved, Al code under GPL3 Licence. | ada_lovelance@hackingcodeschool.net 
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+
+  </body>
+-->

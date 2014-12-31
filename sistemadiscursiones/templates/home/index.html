@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+  {% block nav-index %}
+    <li class="active">
+      <a class="btn btn-primary" href="{% url 'inicio' %}">
+        <h4><span class="glyphicon glyphicon-home"></span><br> Home</h4>
+      </a>
+    </li>
+  {% endblock %}
+
+{% block title %} Hacking Code School {% endblock %}
+
+
+{% block profile %}
+
+
+  {% endblock %}
+
+
+
+{% block content %}
+
+ <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="intro-message">
+                        <h1>Hacking Code School</h1>
+                        <h3> Hacking Code School es un proyecto de aprendizaje de seguridad informática, hacking, linux, programación y administración de servidores.</h3>
+                        <hr class="intro-divider">
+
+        {% if user.is_anonymous %}
+
+                   <div class="btn-group">
+                      <ul>
+                        <h2 class="text-info">Conectáte con:</h2>
+                          <a href="{% url 'social:begin' 'twitter' %}" type="button-lg" class="btn btn-default">
+                            <i class="icon-twitter"> Twitter</i>
+                          </a>
+                          <a href="{% url 'social:begin' 'facebook' %}" type="button" class="btn btn-default">
+                            <i class="icon-facebook"> Facebook</i>
+                          </a>
+                          <a href="{% url 'social:begin' 'google-oauth2' %}" type="button" class="btn btn-default">
+                            <i class="icon-plus"> Google</i>
+                          </a>
+                          <a href="/registro/" type="button" class="btn btn-default">
+                            <i class="icon glyphicon glyphicon-share"> Registro</i>
+                          </a>
+                          <a href="/registro/" type="button" class="btn btn-default">
+                            <i class="icon glyphicon glyphicon-share">Login</i>  
+                          </a>
+                      </ul>
+                    </div>         
+              {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+          
+        </div>
+        </div>
+        <!-- /.container -->
+       
+
+<div id="about" class="about">
+      <div class="container-fluid">
+        <div class="col-md-6">
+           <h2 class="text-center">Hacking Code School</h2>
+           <p><strong>Esto es HCS Project.</strong></p>
+            <article>
+              <p class="wellcome-note-head">Este es el inicio de un portal que pretende ser un referente serio en un mundo tan complicado y a veces abstracto como es el de la seguridad informática.</p>
+              <p class="wellcome-note-info">Nuestro objetivo va a ser el de informarte de las últimas noticias, ayudarte a avanzar en tu carrera, con contenidos serios, de calidad.</p> 
+           </article>
+         
+           <hr class="intro-divider">
+        </div>
+        <div class="col-md-6">
+        <h2 class="text-center">¿Qué podemos ofrecerte?</h2>
+        <article>
+        <p class="wellcome-note-head"><label>Somos una comunidad de seguridad informática </label>Nos dedicamos a la administración de <span>servidores linux, </span><span>ofrecemos servicios de hosting,</span><span> hacking, pentesting </span> y programación.</p>
+        <p class="wellcome-note-info">Nuestra intención es crear una comunidad de conocimiento libre, que permita que el conocimiento de tod@s nos relotroalimente y nos haga crecer, sin elitismos</p>
+        </article>
+          </div> 
+          <div class="col-md-12">
+            <article>
+             <p class="wellcome-note-head">Ofrecer un portal donde profesionales y amateurs del mundo de la seguridad puedan encontrarse y compartir proyectos y oportunidades profesionales.</p>
+            <p class="wellcome-note-head">Avocando por el software libre y por la conciencia libre, con la ética de los primeros tiempos, siendo nuestros referentes gente como Richard Stallmand, Isaac Asimov, Kevin Mitcknick, pretendemos ofrecerte un portal libre y sin prejuicios ni colores donde todo el mundo pueda expresarse con libertad, sin elitismos y predominando el respeto y el conocimiento. </p>
+            </article>
+          </div>
+      <hr class="intro-divider">
+      </div>
+      <div class="container">
+           <hr class="intro-divider">
+      <div class="about-grids">
+        <div class="col-md-3 about-grid">
+          <span class="about-icon"><img src="/static/img/about-icons.png" alt=""> </span>
+          <h3><a href="#"><label>Soporte</label> Servicios</a></h3>
+              <p>Si estás interesado en contratarnos ponte en contacto con nosotros por mail y comentanos tu proyecto.</p>
+              <p>Ofrecemos servicios de mantenimiento de servidores Linux, Hardening, alojamiento web y vps, recuperación de incidentes, hacking ético y pentesting.</p> 
+              <p>No siempre tenemos diponibilidad y tampoco aceptamos cualquier proyecto, lo mejor es que te pongas en contacto con nostros  y hablemos en detalle sobre lo que necesitas.</p>
+        </div>
+        <div class="col-md-3 about-grid">
+          <span class="/static/img/about-icon1"> </span>
+          <h3><a href="#"><label>Clases</label> Cursos</a></h3>
+          <p>Como nos encanta enseñar y aprender esta es nuestra plataforma de aprendizaje.</p>
+          <p> Tenemos un montón de cursos, prácticos y reales donde os ahorramos camino con la experiencia que hemos adquirido a lo largo de los años.</p>
+          <p>Si quieres clases particulares de alguna materia contacta con nosotros en privado al correo.</p>
+        </div>
+        <div class="col-md-3 about-grid">
+          <span class="../img/about-icon2"> </span>
+          <h3><a href="{% url 'oraculolist' %}"><label>Pregunta</label> Oráculo</a></h3>
+              <p>Haz tus preguntas al oráculo y la comunidad te contestará.</p>
+              <p>Puedes preguntar sobre programación, administración de sistemas hacking exploiting... </p>
+              <p>Lo que tu quieras, el único consejo que te damos es que seas claro, será más fácil que contesten</p>
+          
+        </div>
+        <div class="col-md-3 about-grid">
+          <span class="../img/about-icon3"> </span>
+          <h3><a href="#"><label>Comunidad</label> Foro</a></h3>
+                <p>Como hemos dicho esto es una comunidad, a la que esperamos que te unas. </p>
+                <p> El foro es uno de los espacios que tenemos para comunicarnos, puedes escribir tus post, desarrollar temas hacer preguntas
+                </p>
+                <p> Nuestro foro es tú espacio para que opines, compartas y participes.</p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      </div>
+      </div>
+
+    <div id="services" class="services">
+      <div class="container-fluid">
+        <h3><label>Servicios </label></h3>
+  
+      <div class="services-list text-center">
+        <ul class="list-unstyled list-inline">
+          <li>
+            <a href="#"><span class="service-icon4"> </span> <label><h3>Sys admin</h3></label> </a>
+          </li>
+          <li>
+            <a href="#"><span class="service-icon6"> </span><label><h3>Hosting y Vps</h3></label></a>
+          </li>
+          <li>
+            <a href="#"><span class="service-icon2"> </span><label><h3>Hacking</h3></label></a>
+          </li>
+          <li>
+            <a href="#"><span class="service-icon3"> </span><label><h3>Hardening</h3></label></a>
+          </li>
+          <li>
+            <a href="#"><span class="service-icon4"> </span><label><h3>Programación</h3></label></a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+
+
+  <div class="container-fluid"><!-- contenedor cuerpo -->
+    <div class="panel panel-primary pull-right col-md-12"><!-- panel cuerpo -->
+       
+      <div class="panel-body">
+        <!-- List group -->
+        <h4 class="text-center">En Breve también tendremos:</h4>
+        <ul class="list-group pull-rigth">        
+          <li class="list-group-item col-md-4">
+            <span class="glyphicon glyphicon-screenshot"></span>
+            <a href="blog.html"><h4>Blog>:</h4></a>
+            <p class="text-justified">En el blog publicamos nuevos tutoriales, experimentos y descubrimientos.</p>
+            <p class="text-justified long">Recordar todas las configuraciones de todo es imposible.</p>
+            <h5 class="text-justified"> Aquí escribimos nuestros how-to para nosotros y para ti.</h5>
+          </li>
+          <li class="list-group-item col-md-4 col-sm-4 ">
+                  <span class="glyphicon glyphicon-book"></span>
+                    <a href="{% url 'biblioteca' %}">
+                      <h4>Biblioteca>:</h4>
+                    </a>
+                    <h5 class="center">En esta sección hay un montón de manuales libros y trucos.</h5>
+                    <h5 class="center">Los hemos recopilado a lo largo del tiempo con interés y paciencia. Algunos ya es imposible saber de que fuente, pero cada uno de ellos pertenece a su autor.</h5><h5 class="center">Pasa, sírvete y disfruta.</h5>
+                </li>
+                 <li class="list-group-item col-md-4 col-sm-4">
+                  <span class="glyphicon glyphicon-log-in"></span>
+                    <a href="{% url 'hacksessions' %}">
+                      <h4>Hacksessions>: </h4>
+                    </a>
+                    <h5 class="center">Comparte sessión con nosotros en terminal en nuestro server.</h5>
+                    <h5 class="center">Aprenderemos juntos en tiempo real.</h5> 
+                    <h5 class="center">Nos comunicamos por voz en Mumble.</h5>
+                </li>
+        </ul>
+      </div> <!--panel body-->
+    </div> <!--panel primary-->
+  </div> <!--continer-->
+  </div><!-- Container-fluid-->
+
+<!-- Columnas fin de página-->
+<div class="progress">
+  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+  </div>
+</div>
+<ol class="breadcrumb">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-responsive center-block" src="/static/img/pic1.jpg">
+      <h2 class="text-center">Hacking, Pentesting, Malware, Cracking...</h2><br>
+      <p>Proyectos, clases, cursos, tutoriales sobre: <strong>Hacking, Pentesting, Malware, Cracking, Seguridad informática ...</strong> Trucos, cursos y tutoriales, Hacking. </p>
+    </div>
+    <div class="col-md-4">
+      <img class="img-responsive center-block" src="/static/img/pic2.jpg">
+      <h2 class="text-center">Debian, Administración y hardening de sistemas</h2><br>
+      <p>Avocamos por el software libre, somos especialistas en: <strong>Debian</strong> Trucos cursos y tutoriales Linux, Debian </p>
+   </div>
+    <div class="col-md-4">
+      <img class="img-responsive center-block" src="/static/img/pic3.jpg">
+      <h2 class="text-center">Programación y Scripting en Python y Bash</h2><br>
+      <p>Nuestro lenguaje favorito es <strong>Python</strong> Trucos, cursos y tutoriales Python</p>
+    </div>
+  </div>
+</ol>
+<hr>
+<footer>
+  <p>&copy; Hacking Code School 2014</p>
+</footer>
+</div> <!-- /container -->
+</div>
+{% endblock %}

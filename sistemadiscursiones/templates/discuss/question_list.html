@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block nav-oraculolist %}
+              <li class="active">
+                <a class="btn btn-primary" href="{% url 'oraculolist' %}"><span class="glyphicon glyphicon-bullhorn"><h4>Oráculo</h4></a>
+              </li>
+              {% endblock %}
+
+{% block content %}
+
+	<div class="container-fluid">
+		<br>
+		<div class="row col-md-12">
+            <div class="nav navbar col-md-8 ">
+                <ul class="nav nav-tabs">
+                    <li class="top">
+                    	<a href="/oraculolist/">
+                    		<h4>5 últimas preguntas</h4>
+                    	</a>
+                	</li>
+                    <li class="top active">
+                        <a href="/preguntas/">
+                          <h4>Ver todas las preguntas</h4>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="/preguntar/">
+                          <h4>Hacer tu pregunta</h4>
+                        </a>
+                    </li>
+                </ul>
+           	</div>
+	        <div class="row">
+		 		<div class="col-md-4">
+			  		<h3 class="text-primary text-center bg-defaultc ">Busqueda por Categorías:</h3>
+			  		<div class="btn col-md-12">
+			  			{% for tag in tags %}
+			  			<button type="button" class="btn btn-success btn-sm"  id="{{ tag.id }}">{{ tag.nombre }}</button>
+			  			{% endfor %}
+			  		</div>
+				</div>
+			</div>
+		</div>
+
+	  <div class="row">
+  		<div class="container-fuid">
+      		<div class="col-md-8">
+        		<div class="list-group">
+        			{% for question in questions %}
+        			<div class="panel-body">
+          				<div id="datos">
+            				<h3 class="text-center">
+              					<a class= "list-group-item list-group-item-info" href="/pregunta/{{ question.slug }}/" >{{ question.title }}
+              						<small>{{ question.user }} </small>
+                					<span><img src="{{ question.user.avatar }}" class="foto-perfil"></span>
+              					</a> 
+                			</h3>
+            				<blockquote>
+                				<p>Descripcion:</p> 
+                					<a href="/pregunta/{{ question.slug }}/" >
+                					<span class="list-group-item">{{ question.description}}</span></a>
+                					<br>
+                					
+                					<span>Etiquetas:
+                					
+                  					<button type="button" class="btn btn-success" id="{{ tag.id }}">{{ question.etiqueta}}</button>
+                  					
+                  				</span>
+                  		
+                 			</blockquote>
+               					<p><button type="button" class="btn btn-info">Publicado el:</button> {{ question.modified }}</p>
+            			</div>
+            			<hr>
+            		</div>
+            		{% endfor %}
+          		</div>
+        </div>
+        
+
+
+
+
+
+		
+			<div class="row">
+				<div class="col-md-4">	
+					<a href="/preguntas/" class="list-group-item active">
+					    Top 10 Preguntas Frecuentes
+					</a>
+					<ul class="list-group">
+	                	{% for question in questions %}
+		                	<li class="list-group-item">
+				                 <a href="/pregunta/{{ question.slug }}" class="list-group-item">
+				                    <span class="glyphicon glyphicon-question-sign"> {{ question.title }}</span>
+				                </a>
+		                	</li>
+	                	{% endfor %} 
+	                 </ul>                   
+				</div>		
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+
+
+{% block scripts %}
+<script>
+	$('.btn-xs').on('click', HiceClick);
+	function HiceClick(){
+		var id = $(this).attr('id');
+		
+		$.ajax({
+			data : {'id' : id},
+			url : '/buscar-ajax/' ,
+			type : 'get',
+			success : function (data){
+				console.log(data);
+				var html
+				for (var i = 0; i < data.length ; i++){
+				html+='<div><hr><h4><a href="/pregunta/'+ data[i].fields.slug + '/">'+ data[i].fields.title + '</a></h4><blockquote class="bloquesito"><p class="bg-info bg-info-customize">Vistos <span>0</span></p><p class="bg-warning bg-info-customize">Respuestas <span>0</span></p><p class="bg-success bg-info-customize">Votos <span>0</span></p><p class="bg-success bg-fecha-customize">Publicado el: <span>' + data[i].fields.modified +'</span></p><p class="tags"><span>Etiquetas:</span></p></blockquote></div>';
+				}
+				$('#datos').html(html);
+			}
+		});
+	
+}
+
+</script>
+{% endblock %}

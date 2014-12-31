@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Comunidad de hacking y seguridad informatica">
+    <meta name="author" content="ada_lovelance">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+     <script src=  '/static/js/bootstrap.min.js'></script>
+
+    <title>{% block title %}{% endblock %}</title>
+    {% load static from staticfiles %}
+   
+    <!--<link rel="stylesheet" href="{% static '/static/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/static/css/bootstrap.css' %}"> -->
+    <link rel="stylesheet" href="{% static '/static/css/z.css' %}">
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css">
+   
+    <link rel="shortcut icon" href="{% static '/static/img/logohcs3peke.png' %}">
+</head>
+  <body>
+    <!-- Inicio menú navegación-->
+    <!-- Primera parte para el desplegable-->
+    <div class="container-fuid">
+      <div class= "col-md-12">
+        <div class="navbar nav navbar-inverse navbar" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Despliega para navegar</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="col-sm-12 col-md-3 col-lg-3 ">
+            <a class="navbar" href="{% url 'inicio' %}">
+              <h1 class="text-center h2">
+                <img class="media-heading pull-left" src="{% static '/static/img/logohcs3peke.png' %}" alt="Hacking Code School">
+                <span class="hidden-xs">Hacking Code <br class="hidden-sm">School</span> <br><small class="text-left">By Hackers 4 Hackers,<br class="hidden-lg"> in a real live.</small>
+              </h1>
+            </a>
+          </div>
+
+          <!-- Enlaces y menú -->
+          <div class="nav collapse navbar-collapse">
+            {% block nav %}
+            <ul class="navbar navbar-nav" id="nav">
+              {% block nav-index %}
+              <li>
+                <a class="btn" href="{% url 'inicio' %}">
+                  <span class="glyphicon glyphicon-home"></span> 
+                  <h4>Home</h4>
+                </a>
+              </li>
+              {% endblock %}
+
+              {% block nav-hacksessions %}
+              <li>
+                <a class="btn" href="{% url 'hacksessions' %}">
+                  <span class="glyphicon glyphicon-log-in"></span>
+                  <h4>Hack Sessions</h4>
+                </a>
+              </li>
+              {% endblock %}
+
+              {% block nav-oraculolist %}
+              <li>
+                <a class="btn" href="{% url 'oraculolist' %}">
+                  <span class="glyphicon glyphicon-bullhorn"></span>
+                  <h4>Oráculo</h4>
+                </a>
+              </li>
+              {% endblock %}
+
+              {% block nav-biblioteca %}
+              <li>
+                <a class="btn" href="{% url 'biblioteca' %}">
+                  <span class="glyphicon glyphicon-book"></span>
+                  <h4>Biblioteca</h4>
+                </a>
+              </li>
+              {% endblock %}
+
+              {% block nav-servicios %}
+              <li>
+              	<a class="btn" href="{% url 'servicios' %}">
+                  <span class="glyphicon glyphicon-wrench"></span>
+                  <h4>Servicios</h4>
+                </a>
+              </li>
+              {% endblock %}
+
+              {% block nav-contacto %}
+              <li>
+                <a class="btn" href="{% url 'contacto' %}">
+                  <span class="glyphicon glyphicon-envelope"></span>
+                  <h4>Contacto</h4>
+                </a>
+              </li>
+              {% endblock %}
+              <!--<li class="btn"><a href="noticias.html">Blog</a></li>
+              <li class="btn"><a href="noticias.html">Noticias</a></li>
+              <li class="btn"><a href="servicios.html">Repositorios</a></li>
+              <li class="btn"><a href="foro.html">Foro</a></li>
+              <li class="btn"><a href="clases.html">Clases</a></li>-->
+            </ul>
+          {% endblock %}
+         </div><!-- /.fin div nav-colapse-->
+        </div><!-- /.fin div nav-->
+
+        {% if  user.is_authenticated %}
+
+        <div class="btn-group  pull-right">
+          <img src="{{ user.avatar }}" class="media-object img-login center-block pull-left">
+            <button class="btn navbar-inverse btn-info dropdown-toggle" data-toggle="dropdown">
+              <span class="glyphicon glyphicon-user"><h5>{{ user.username }}</h5></span>
+              <span class="caret"></span> 
+            </button>
+           <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a href="{% url 'users:user_detail' user.username %}">Perfil</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href='{% url "users:perfil" %}'</b>Modificar Perfil</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="{% url 'users:logout' %}">Salir
+                    <span class="glyphicon glyphicon-log-out"></span>
+                  </a> 
+                </li>
+            </ul>
+            
+          </div> 
+
+        {% else %}
+              
+                
+                   
+                   <div class="panel panel-body col-sm-12 pull-right">
+                     <h4 class="text-primary">Conectáte con:</h4>
+
+                      <a href="{% url 'social:begin' 'twitter' %}" type="button" class="btn btn-info navbar-inverse"><i class="icon-twitter"></i> Twitter</a>
+                      <a href="{% url 'social:begin' 'facebook' %}" type="button" class="btn btn-primary navbar-inverse"><i class="icon-facebook"></i> Facebook</a>
+                      <a href="{% url 'social:begin' 'google-oauth2' %}" type="button" class="btn btn-danger navbar-inverse"><i class="icon-plus"></i> Google</a>
+                      
+                       <a href="/registro/" type="button" class="btn btn-success navbar-inverse"><i class="icon glyphicon glyphicon-share"></i> Registro </a>
+                       <a href="/registro/" type="button" class="btn btn-warning navbar-inverse"><i class="icon glyphicon glyphicon-share"></i> Login </a>
+                  
+                      </div>
+                      </div>
+                   
+                
+             <!-- /.loguin2--> 
+              {% endif %}
+              
+         <!-- /.navbar colapse -->
+      </div>
+      </div><!-- /.container-fluid -->
+     
+              {% block profile%}
+
+              {% endblock %}
+
+              <br>
+        
+
+      
+         {% block content %}
+
+          {% endblock %}
+
+   {% block scripts %}
+              {% endblock %}
+
+</body>
+</html>

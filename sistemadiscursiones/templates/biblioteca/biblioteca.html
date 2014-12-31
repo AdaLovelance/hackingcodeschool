@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+  {% block nav-biblioteca %}
+    <li class="active">
+      <a class="btn btn-primary" href="{% url 'biblioteca' %}">
+        <h4><span class="glyphicon glyphicon-home"></span><br> biblioteca</h4>
+        
+      </a>
+    </li>
+  {% endblock %}
+
+{% block title %} Hacking Code School {% endblock %}
+
+
+{% block profile %}
+
+
+
+  {% endblock%}  
+
+
+  {% block content %}           
+    <nav class="nav" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="hacking.html" class="dropdown-toggle" data-toggle="dropdown">Manuales tutoriales y libros de Hacking<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Backtrack</a></li>
+            <li><a href="#">Bugtrag</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Carding</a></li>
+            <li><a href="#">Cracking</a></li>
+            <li><a href="#">Cheat Sheets</a></li>
+            <li><a href="#">Criptografia</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Diccionarios</a></li>
+            <li><a href="#">Distros</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Hacking</a></li>
+            <li><a href="#">Historia</a></li>
+            <li><a href="#">Honypots</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="collapse navbar-collapse" id="navbar-Segu-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="hacking.html" class="dropdown-toggle" data-toggle="dropdown">Manuales tutoriales y libros de Seguridad<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+       <div class="collapse navbar-collapse" id="navbar-Sistemas-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="hacking.html" class="dropdown-toggle" data-toggle="dropdown">Manuales tutoriales y libors de Administración de sistemas<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="collapse navbar-collapse" id="navbar-Progra-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="hacking.html" class="dropdown-toggle" data-toggle="dropdown">Manuales tutoriales y libros de Programación<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      </ul>
+    </div> 
+  </div> 
+</nav>                                
+
+
+ 
+  <div id="main-wrapper">
+        <div class="container">
+          <!--
+          <div id='cssmenu'>
+            <ul>
+               <li class='has-sub'><a href='seguridad.html'><span>Seguridad</span></a>
+                  <ul>
+                      <li><a href='seguridad.html'><span>Hacking</span></a></li>
+                      <li><a href='#'><span>Hardening</span></a></li>
+                      <li><a href='#'><span>Pentesting</span></a></li>
+                      <li><a href='#'><span>Cracking</span></a></li>
+                      <li><a href='#'><span>Criptografía</span></a></li>
+                      <li><a href='#'><span>Esteganográfia</span></a></li>
+                      <li><a href='#'><span>Malware</span></a></li>
+                      <li><a href='#'><span>Políticas</span></a></li>
+                  </ul>
+               </li>
+               <li class='has-sub'><a href='administraciondesistemas.html'><span>Administración de sistemas</span></a>
+                  <ul>
+                      <li><a href='seguridad.html'><span>Linux</span></a></li>
+                      <li><a href='#'><span>Hardening</span></a></li>
+                      <li><a href='#'><span>Pentesting</span></a></li>
+                      <li><a href='#'><span>Cracking</span></a></li>
+                      <li><a href='#'><span>Criptografía</span></a></li>
+                      <li><a href='#'><span>Esteganográfia</span></a></li>
+                      <li><a href='#'><span>Malware</span></a></li>
+                      <li><a href='#'><span>Políticas</span></a></li>
+                  </ul>
+               </li>
+               <li class='has-sub'><a href='programacion.html'><span>Programación</span></a>
+                  <ul>
+                      <li><a href='seguridad.html'><span>Hacking</span></a></li>
+                      <li><a href='#'><span>Hardening</span></a></li>
+                      <li><a href='#'><span>Pentesting</span></a></li>
+                      <li><a href='#'><span>Cracking</span></a></li>
+                      <li><a href='#'><span>Criptografía</span></a></li>
+                      <li><a href='#'><span>Esteganográfia</span></a></li>
+                      <li><a href='#'><span>Malware</span></a></li>
+                      <li><a href='#'><span>Políticas</span></a></li>
+                  </ul>
+               </li><li class='has-sub'><a href='redes.html'><span>Redes</span></a>
+                  <ul>
+                      <li><a href='seguridad.html'><span>Hacking</span></a></li>
+                      <li><a href='#'><span>Hardening</span></a></li>
+                      <li><a href='#'><span>Pentesting</span></a></li>
+                      <li><a href='#'><span>Cracking</span></a></li>
+                      <li><a href='#'><span>Criptografía</span></a></li>
+                      <li><a href='#'><span>Esteganográfia</span></a></li>
+                      <li><a href='#'><span>Malware</span></a></li>
+                      <li><a href='#'><span>Políticas</span></a></li>
+                  </ul>
+               </li>
+            </ul>
+          </div>-->
+
+
+              
+
+
+
+          <!-- Features -->
+
+            <div class="row1">
+              <div class="3u">
+                        <h2>Libros Hacking Seguridad</h2>
+                        <div class="thumbnail">     
+                          <a href="seguridad.html"><img src="/static/img/pic1.jpg" alt="Libros Hacking Seguridad" /></a>
+                          <blockquote>Libros, pdfs y textos de: Hacking, Hardening, Pentesting, Cracking, Criptografía, Esteganografía y 
+                            Malware.</blockquote>
+                          <cite><strong>Hacking</strong> Pentesting y seguridad</cite>
+                        </div>
+                      </div>
+              <div class="3u">
+                        <h2>Libros administración de sistemas</h2>
+                        <div class="thumbnail">
+                          <a href="administraciondesistemas.html"><img src="/static/img/pic2.jpg" alt="Tutoriales Administración de sistemas" /></a>
+                          <blockquote>Libros, pdfs y textos de: Lpic, administración de servidores, configuración de servidores, clustering, centos, debian...</blockquote>
+                          <cite><strong>Administración de sistemas</strong></cite>
+                        </div>
+                      </div>
+              
+              <div class="3u">
+                        <h2>Libros Programación</h2>
+                        <div class="thumbnail">
+                          <a href="programación.html"><img src="/static/img/pic3.jpg" alt="" /></a>
+                          <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspenddapibus sed mattis quis.</blockquote>
+                          <cite><strong>John Doe</strong> Lorem Ipsum Dolore</cite>
+                        </div>
+                      </div>
+              <div class="3u">
+                        <h2>Libros Redes</h2>
+                        <div class="thumbnail">
+                          <a href="redes.html"><img src="/static/img/pic4.jpg" alt="" /></a>
+                          <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspenddapibus sed mattis quis.</blockquote>
+                          <cite><strong>John Doe</strong> Lorem Ipsum Dolore</cite>
+                        </div>
+                      </div>
+
+              
+            </div>
+
+              </div>
+              <footer>
+
+                  <div class="row">
+            <div class="12u">
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="12u">
+              <div id="copyright">
+              </div>
+            </div>
+          </div>
+        </footer>
+  {% endblock%} 

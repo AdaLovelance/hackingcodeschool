@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fuid">
+        <div class="row">
+                <div class="col-sm-6 col-md-3 col-md-offset-1">
+                <br>
+                        <h3 class="text-primary">{{ user.username }}</h3>
+                        <div class="thumbnail">
+                              <img class="img-responsive" src="{{ user.avatar }}" ></img>
+                          </div>
+                              <div class="panel">
+                                
+                                <h4 class="text-primary">Descripcion:</h4> <b>{{user.descripcion}}<b>
+
+                                <h5 class="text-primary">Redes Sociales:</h5>
+                                <p>
+                                    {% if facebook %}
+                                        <a href="http://fb.com/{{ facebook }}" class="btn btn-info" role="button"><i class="icon-facebook"></i> Facebook</a> 
+                                    {% endif %}
+
+                                    {% if twitter %}
+                                        <a href="http://twitter.com/{{ twitter }}" class="btn btn-primary" role="button"><i class="icon-twitter"></i> Twitter</a>
+                                    {% endif %}
+                                     
+                                </p>
+
+                             
+                            </div>
+                          </div>
+                <div class="col-md-7">
+                <br>
+                        <div class="panel panel-primary">
+                          <div class="panel-heading">
+                            <h3 class="panel-title">Preguntas Hechas en Oráculo</h3>
+
+                          </div>
+                          <div class="panel-body">
+                            
+                            {% for question, tags in quest_tags %}
+                              <h4>{{ question.title }} </h4>
+
+                                       {% for answer in answers %}                        
+                                  <p><span class="label label-danger">Mostrada </span><span class="badge">0</span>
+                                   
+                                  <span class="label label-info">Respuestas </span><span class="badge">{{ question.answers}}</span>
+                                    {% endfor %}
+                                  <span class="label label-success">Votos </span><span class="badge">0</span>
+                                  <span class="label label-primary">Publicado el:</span><span> {{ question.modified }}</span></p>
+                                   
+                                
+
+                                  <p class="tags">
+                                        <span>Etiquetas:</span>
+                                        {% for tag in tags%}
+                                        <button type="button" class="btn btn-default btn-xs">{{ tag.nombre }}</button>
+                                        {% endfor %}
+                                  </p>
+                                
+                                <hr>
+
+
+
+
+                            {% endfor %}
+                          
+
+                             
+
+                          </div>
+                        </div>
+
+                        
+
+                                
+                </div>
+        </div>
+</div>
+
+{% endblock %}

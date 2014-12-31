@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block nav-hacksessions %}
+    <li class="active">
+      <a class="btn btn-primary" href="{% url 'hacksessions' %}"><span class="glyphicon glyphicon-log-in">
+        <h4>Hack Sessions</h4></a>
+    </li>
+{% endblock %}
+{% block title %} Hacking Code School {% endblock %}
+
+
+{% block profile %}
+
+  {% endblock%}
+
+
+{% block content %}
+
+
+
+<ul class="nav nav-tabs">
+  <li ><a href="{% url 'hacksessions' %}">Preguntas</li></a>
+   <li><a href="{% url 'hackpub' %}">Hacksessions públicas</a>
+   <li><a href="{% url 'hackpriv' %}">Hacksessions privadas</a>
+   <li class="active"><a href="{% url 'proxhack' %}">Próximas Hacksessions</a>
+ 
+  </li>
+ 
+</ul>
+
+
+<a href="{% url 'calendario'  %}">&lt;&lt; Prev</a>
+<a href="{% url 'calendario'  %}">Next &gt;&gt;</a>
+
+    {% for year, months in years %}
+        <div class="clear"></div>
+        <h4>{{ year }}</h4>
+        {% for month in months %}
+            <div class=
+            {% if month.current %}"current"{% endif %}
+            {% if not month.current %}"month"{% endif %} >
+                {% if month.entry %}<b>{% endif %}
+                <a href="{% url 'calendario' %}">{{ month.name }}</a>
+                {% if month.entry %}</b>{% endif %}
+            </div>
+
+            {% if month.n == 6 %}<br />{% endif %}
+        {% endfor %}
+    {% endfor %}
+
+ {% endblock%}

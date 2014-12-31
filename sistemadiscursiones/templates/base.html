@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Comunidad de hacking y seguridad informatica">
+    <meta name="author" content="ada_lovelance">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+     <script src=  '/static/js/bootstrap.min.js'></script>
+
+    <title>{% block title %}{% endblock %}</title>
+    {% load static from staticfiles %}
+   
+    <!--<link rel="stylesheet" href="{% static '/static/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/static/css/bootstrap.css' %}"> -->
+    <link rel="stylesheet" href="{% static '/static/css/cosmobootstrap.css' %}">
+    <link rel="stylesheet" href="{% static '/static/css/cosmobootstrap.min.css' %}">
+      <script type="text/javascript" src="/static/js/move-top.js"></script>
+    <script type="text/javascript" src="/static/js/easing.js"></script>
+    
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css">
+   
+    <link rel="shortcut icon" href="{% static '/static/img/logohcs3peke.png' %}">
+</head>
+
+ <body>
+  <div class="navbar navbar-default">
+    <div class="navbar-header col-md-4">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <img class="media-heading pull-left" src="{% static '/static/img/logohcs3peke.png' %}" alt="Hacking Code School">
+        <a class="navbar-brand" href="{% url 'inicio' %}">Hacking Code School <br>
+      <small class="text-primary">By Hackers 4 Hackers, in a real live.</small></a>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse col-md-8">
+      {% block nav %}
+        <ul class="navbar navbar-nav" id="nav">
+          {% block nav-index %}
+              <li>
+                <a class="btn" href="{% url 'inicio' %}">
+                  <span class="glyphicon glyphicon-home"></span> 
+                  <h4>Home</h4>
+                </a>
+              </li>
+              {% endblock %}
+               {% block nav-servicios %}
+              <li>
+                <a class="btn" href="{% url 'servicios' %}">
+                  <span class="glyphicon glyphicon-wrench"></span>
+                  <h4>Servicios</h4>
+                </a>
+              </li>
+              {% endblock %}
+                {% block nav-clases %}
+              <li>
+                <a class="btn" href="{% url 'contacto' %}">
+                  <span class="glyphicon glyphicon-paperclip"></span>
+                  <h4>Cursos</h4>
+                </a>
+              </li>
+              {% endblock %}
+
+              {% block nav-oraculolist %}
+              <li>
+                <a class="btn" href="{% url 'oraculolist' %}">
+                  <span class="glyphicon glyphicon-bullhorn"></span>
+                  <h4>Oráculo</h4>
+                </a>
+              </li>
+              {% endblock %}
+
+                 {% block nav-foro %}
+              <li>
+                <a class="btn" href="/foro/">
+                  <span class="glyphicon glyphicon-globe"></span>
+                  <h4>Foro</h4>
+                </a>
+              </li>
+              {% endblock %}   
+            
+               {% block nav-contacto %}
+              <li>
+                <a class="btn" href="{% url 'contacto' %}">
+                  <span class="glyphicon glyphicon-envelope"></span>
+                  <h4>Contacto</h4>
+                </a>
+              </li>
+              {% endblock %}
+
+              <!--<li class="btn"><a href="noticias.html">Blog</a></li>
+              <a class="btn" href="{% url 'biblioteca' %}">
+                  <span class="glyphicon glyphicon-book"></span>
+              <li class="btn"><a href="noticias.html">Noticias</a></li>
+              <li class="btn"><a href="servicios.html">Repositorios</a></li>
+              <li class="btn"><a href="foro.html">Foro</a></li>
+              <li class="btn"><a href="clases.html">Clases</a></li>
+               {% block nav-hacksessions %}
+              <li>
+                <a class="btn" href="{% url 'hacksessions' %}">
+                  <span class="glyphicon glyphicon-log-in"></span>
+                  <h4>Hack Sessions</h4>
+                </a>
+              </li>
+              {% endblock %}s
+
+
+            -->
+            </ul>
+          {% endblock %}
+       
+        </div>
+      
+         {% if  user.is_authenticated %}
+
+        <div class="btn-group  pull-right">
+          <img src="{{ user.avatar }}" class="media-object img-login center-block pull-left" height="75" width="75">
+            <button class="btn navbar-inverse btn-info dropdown-toggle" data-toggle="dropdown">
+              <span class="glyphicon glyphicon-user"><h5>{{ user.username }}</h5></span>
+              <span class="caret"></span> 
+            </button>
+           <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a href="{% url 'users:user_detail' user.username %}">Perfil</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href='{% url "users:perfil" %}'</b>Modificar Perfil</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="{% url 'users:logout' %}">Salir
+                    <span class="glyphicon glyphicon-log-out"></span>
+                  </a> 
+                </li>
+            </ul> 
+          </div> 
+           {% endif %}
+           
+       
+              {% block profile%}
+
+              {% endblock %}
+
+              <br>
+    </div>     
+</div>
+      
+         {% block content %}
+
+          {% endblock %}
+
+   {% block scripts %}
+   {% endblock %}
+
+</body>
+</html>
